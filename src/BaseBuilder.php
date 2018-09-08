@@ -113,7 +113,7 @@ abstract class BaseBuilder
 
         $namespace = config('test-utils.entities_namespace');
         $className = preg_replace(
-            '/(Database\\\Builders\\\)(.*)(Builder)/',
+            "/(.*\b)(.*)(Builder)/",
             '$2',
             get_class($this)
         );
