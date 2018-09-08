@@ -1,0 +1,24 @@
+{
+    "name": "noogic/test-utils",
+    "description": "Utilities to help with testing in laravel",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joan Morell",
+            "email": "noogic@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Noogic\\TestUtils\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Noogic\\TestUtils\\TestUtilsServiceProvider"
+            ]
+        }
+    }
+}
