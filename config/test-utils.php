@@ -1,6 +1,7 @@
 <?php
 
 return [
-    'user' => \App\User::class,
+    'entities_namespace' => 'App\\',
+    'user' => App\User::class,
     'transactions' => true,
 ];
