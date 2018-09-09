@@ -43,9 +43,10 @@ abstract class BaseBuilder
             return;
         }
 
-        $this->createIfMissing('user_id', UserBuilder::class);
+        $userIdKey = config('test-utils.user_id_key');
+        $this->createIfMissing($userIdKey, UserBuilder::class);
 
-        $this->user = config('test-utils.user')::find($this->data['user_id']);
+        $this->user = config('test-utils.user')::find($this->data[$userIdKey]);
     }
 
     protected function handlePlugins()
