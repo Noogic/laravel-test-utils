@@ -1,5 +1,5 @@
 {
-    "name": "noogic/test-utils",
+    "name": "noogic/laravel-test-utils",
     "description": "Utilities to help with testing in laravel",
     "license": "MIT",
     "authors": [

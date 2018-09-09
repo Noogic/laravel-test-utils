@@ -55,7 +55,10 @@ abstract class BaseBuilder
 
     protected function handleRelated()
     {
-        foreach ($this->related as $key => $class) {
+        foreach ($this->related as $index => $value) {
+            $class = is_int($index) ? $value : $index;
+            $key = is_int($index) ? $this->getKeyFromClass($class) : $value;
+
             $this->createIfMissing($key, $class);
         }
     }
@@ -113,11 +116,19 @@ abstract class BaseBuilder
 
         $namespace = config('test-utils.entities_namespace');
         $className = preg_replace(
-            "/(.*\b)(.*)(Builder)/",
+            '/(.*\b)(.*)(Builder)/',
             '$2',
             get_class($this)
         );
 
         return $namespace . $className;
+    }
+
+    protected function getKeyFromClass($class)
+    {
+        $key = preg_replace('/(.*\b)(\w+)/', '$2', $class);
+        $key = strtolower($key) . '_id';
+
+        return $key;
     }
 }
