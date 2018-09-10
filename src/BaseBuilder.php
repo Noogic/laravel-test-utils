@@ -17,7 +17,7 @@ abstract class BaseBuilder
     protected $user = null;
     protected $belongsToUser = false;
 
-    protected $related = [];
+    protected $belongsTo = [];
 
     public function __construct(array $data = [])
     {
@@ -30,7 +30,7 @@ abstract class BaseBuilder
 
         $instance->handleBelongsToUser();
         $instance->handlePlugins();
-        $instance->handleRelated();
+        $instance->handleBelongsTo();
 
         $instance->entities = factory($instance->class(), $quantity)->create($instance->data);
 
@@ -54,9 +54,9 @@ abstract class BaseBuilder
         // TODO implement handlePlugins
     }
 
-    protected function handleRelated()
+    protected function handleBelongsTo()
     {
-        foreach ($this->related as $index => $value) {
+        foreach ($this->belongsTo as $index => $value) {
             $class = is_int($index) ? $value : $index;
             $key = is_int($index) ? $this->getKeyFromClass($class) : $value;
 
