@@ -21,7 +21,6 @@ abstract class ApiTestCase extends TestCase
         parent::setUp();
 
         $this->user = config('test-utils.user')::first();
-        $a = 1;
     }
 
     public function signIn($user = null)
@@ -98,9 +97,17 @@ abstract class ApiTestCase extends TestCase
         return $headers;
     }
 
-    protected function dumpResponse(TestResponse $response)
+    protected function dumpResponse(TestResponse $response, $server = true)
     {
-        print_r(json_decode($response->content(), true));
+        $data = json_decode($response->content(), true);
+
+        if ($server) {
+            dump($data);
+
+            return;
+        }
+
+        print_r($data);
     }
 
     /**
