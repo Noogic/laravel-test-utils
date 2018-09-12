@@ -4,13 +4,12 @@ namespace Noogic\TestUtils;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
-use Illuminate\Foundation\Testing\TestCase;
 use Illuminate\Foundation\Testing\TestResponse;
-use Tests\CreatesApplication;
+use Tests\TestCase;
 
 abstract class ApiTestCase extends TestCase
 {
-    use CreatesApplication, DatabaseTransactions;
+    use DatabaseTransactions;
 
     const APPLICATION_JSON = 'application/json';
 
