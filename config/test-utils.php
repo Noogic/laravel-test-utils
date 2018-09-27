@@ -1,8 +1,7 @@
 <?php
 
 return [
-    'entities_namespace' => 'App\\',
-    'user' => App\User::class,
-    'transactions' => true,
-    'user_id_key' => 'user_id',
+    'entities_namespace' => 'App\\', // Namespace of models
+    'user' => App\User::class, // The User full qualified class
+    'transactions' => true, // Use database transactions in api tests
 ];
