@@ -8,7 +8,9 @@
             "email": "noogic@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^7.1"
+    },
     "autoload": {
         "psr-4": {
             "Noogic\\TestUtils\\": "src"
@@ -20,5 +22,8 @@
                 "Noogic\\TestUtils\\TestUtilsServiceProvider"
             ]
         }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.3"
     }
 }
